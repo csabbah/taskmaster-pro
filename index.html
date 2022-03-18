@@ -8,7 +8,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+      integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./assets/styles.css" />
     <title>Taskmaster Pro</title>
   </head>
@@ -36,13 +42,16 @@
           quis iste?
         </p>
       </header>
-      <main class="col-12 col-lg-9 d-flex flex-column">
+      <main class="col-12 col-lg-9 d-flex flex-column main-wrapper">
         <div class="m-5 row justify-content-around">
           <!--  -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
             <div class="card">
               <h4 class="card-header bg-dark text-light">To Do</h4>
-              <ul id="list-toDo" class="list-group list-group-flush"></ul>
+              <ul
+                id="list-toDo"
+                class="list-group list-group-flush sortable"
+              ></ul>
             </div>
           </div>
           <!--  -->
@@ -132,8 +141,14 @@
         </div>
       </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+      integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./assets/script.js"></script>

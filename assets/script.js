@@ -2,7 +2,7 @@ var tasks = {};
 
 var createTask = function (taskText, taskDate, taskList) {
   // create elements that make up a task item
-  var taskLi = $('<li>').addClass('list-group-item');
+  var taskLi = $('<li>').addClass('list-group-item draggable');
   var taskSpan = $('<span>')
     .addClass('badge badge-primary badge-pill')
     .text(taskDate);
@@ -166,3 +166,54 @@ $('#remove-tasks').on('click', function () {
 
 // load tasks for the first time
 loadTasks();
+
+// --------- --------- --------- Sorting and adding an event to the drag and drop (save position of tasks to local)
+// This allows us to sort the UL elements across the multiple columns in the project
+$('.card .list-group').sortable({
+  connectWith: $('.card .list-group'),
+  scroll: false,
+  tolerance: 'pointer',
+  helper: 'clone',
+  update: function (event) {
+    // array to store the task data in
+    var tempArr = [];
+
+    // loop over current set of children in sortable list
+    $(this)
+      .children()
+      .each(function () {
+        var text = $(this).find('p').text().trim();
+
+        var date = $(this).find('span').text().trim();
+
+        // add task data to the temp array as an object
+        tempArr.push({
+          text: text,
+          date: date,
+        });
+      });
+
+    // trim down list's ID to match object property
+    var arrName = $(this).attr('id').replace('list-', '');
+
+    // update array on tasks object and save
+    tasks[arrName] = tempArr;
+    saveTasks();
+  },
+});
+
+// --------- --------- --------- Handle the drag and drop to delete event
+$('#trash').droppable({
+  accept: '.card .list-group-item',
+  tolerance: 'touch',
+  drop: function (event, ui) {
+    // jQueryui has a second 'ui' parameter in this instance that tracks which element is being hovered over a certain wrapper
+    ui.draggable.remove();
+  },
+  over: function (event, ui) {
+    console.log('over');
+  },
+  out: function (event, ui) {
+    console.log('out');
+  },
+});
