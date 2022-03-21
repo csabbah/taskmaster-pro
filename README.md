@@ -2,7 +2,7 @@
 
 ## Purpose / Functionality
 
-UofT Bootstrap, jQuery and jQueryui practice project. This project heavily utilizes bootstrap/jQueryui for styling and responsiveness as well as jQuery for all the main functions.  
+Bootstrap, jQuery and jQueryui practice project. This project heavily utilizes bootstrap/jQueryui for styling and responsiveness as well as jQuery for all the main functions. It allows the user to add tasks as welll as drag the tasks to whichever category they want. Throughout any state, the tasks are saved locally and are loaded back in upon applcation load.
 ## Built With
 
 - HTML
